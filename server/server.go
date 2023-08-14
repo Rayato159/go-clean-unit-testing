@@ -25,6 +25,6 @@ func (s *server) ItemService() {
 	itemHandler := itemHandler.NewItemHandler(itemRepository)
 
 	item := s.app.Group("/item")
-	_ = item
-	_ = itemHandler
+
+	item.POST("/", itemHandler.CreateItem)
 }
